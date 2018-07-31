@@ -1,9 +1,12 @@
-$( document ).ready( function () { //Con el ready se consigue que la funcion se ejecute cuando documento se cree.
-    let addListInput = $( '.addListWrapper input' ); //acedemos a la clase de html addListWrapper y al selector input
-    const generateId = namespace => `${namespace}-${Date.now()}-${Math.ceil(Math.random()*100)}`
-    //la constante generarId es igual a la funcion namespace que return un string (gracias a las comillas nuevas `)
-    //dentro de estas cogerá primero "namespace- fecha de ahora-numero random de 1 a 100"
-    const createListString = name => 
+$( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE EJECUTA
+    let addListInput = $( '.addListWrapper input' );//ACCEDEMOS A LA CLASE HTML ADDLISTWEAPPER Y AL SELECTOR INPUT (YA ESTAN CREADOS INICIALMENTE)
+    const generateId = namespace => `${namespace}-${Date.now()}-${Math.ceil(Math.random()*100)}` //GENERA UNA ID ALEATORA EN UN STRING
+
+    //-------------------------------------------------------------------------------------------------------------NEW LIST START
+    //STRING CON todo el CODGIO HTML DE LA NUEVA LISTA DONDE EL VALOR QUE RECIBE SERÁ EL NOMBRE DE LA LISTA.
+    const createListString = name =>
+      //creo el let addTaskInput porque supuestamente el codigo ya estará creado y existirá
+      //` let addTaskInput = $( '.addTask input' );
         `<div class="list" id="${generateId('list')}">
             <div class="listHeader">
                 <h4>${name}</h4>
@@ -14,50 +17,95 @@ $( document ).ready( function () { //Con el ready se consigue que la funcion se 
             </div>
             <div class="addTask">
                 <input type="text">
-                <button>Add task</button>
+                <button class="adderTask">Add task</button>
             </div>
         </div>`
-      // la constante recibe un nombre y dentro de ese nombre copiará en el index.html todo el supuesto string, con todo el codigo.
-      //En este caso se considera un string, pero dentro del Index funcionará como codigo html.
 
-    const appendNewList = () => { //constante de creacion de lineas
+
+    const appendNewList = () => {
          //  cogemos el text del input
-         //Guardamos en listName con .val(), lo que escribimos en la WEB
          let listName = addListInput.val();
-
+         //  si el nombre de la lista esta vacio no pueda añadir lista
+         if(listName === ''){
+           return;}
          // creamos el nodo .list
          let list = $( createListString( listName ) );
-
          // añadimos el node al DOM
          $( '.lists' ).append( list )
-
          // Limpiamos el texto del input
          addListInput.val( '' );
     }
-
-
     // Listeners
+    // CUANDO OCURRA EL EVENTO, SE EJECUTARÁ LA CONSTANTE "appendNewList" donde guarda el input y devuelve el string con el HTML.
+
+    // MEDIANTE LA TECLA ENTER
      addListInput.on( 'keyup', function ( event ) {
         if ( event.keyCode === 13 ) {
            appendNewList();
         }
-
     } )
-
-    //Como el elemeento ya está creado en un primer momento no hay que indicar  que en otra clase estará
-    //simplemente indicar   cuando se ejecuta el .on se ejecutará con el click del boton
+    // MEDIANTE CLICK EN EL BOTÓN.
     $('.adderButton').on('click', function(event) {
         appendNewList(); //la constante que creea las listas
     })
 
+    //---------------------------------------------------------------------------DELETE BUTTON START
 
-    //Tipo de funcion cuando el elemento no está creado, por esa razon despues del click hay otra coma indicando
-    //donde se encontrará el elemento que se creará en el futuro
      $('.lists').on('click', '.listHeader button', function(event) {
         let listNode = $(event.target.parentNode.parentNode);
-        listNode.detach(); //detach lo elimina del DOM
+        listNode.detach();
      })
+     //---------------------------------------------------------------------------DELETE BUTTON END
 
+
+
+    //-------------------------------------------------------------------------------------------------------------NEW LIST END
+
+    //-------------------------------------------------------------------------------------------------------------NEW TASK START
+
+    const createTaskString = name =>
+      ` <div class="tasks">
+            <h4>${name}</h4>
+            <button>X</button>
+            </div>`
+
+    const appendNewTask = (taskName, taskNode) => {  //le podemos enviar todas las variables que queramos utilzar dentro de la función.
+       //  cogemos el text del input
+      // ?¿?¿?¿ como accedo al valor del input de algo que aun no existe
+      //Para coger el valor del input nos tenemos que posicionar dentro de esta desde el evento.
+
+      //  si el nombre de la lista esta vacio no pueda añadir lista
+      if (taskName === '') {
+        return; }
+      // creamos el nodo .list
+      let task = $(createTaskString(taskName));
+      // añadimos el node al DOM
+      taskNode.append(task);//--------------------------?¿?¿?¿ como cuadno se acceda ya estará creado el .task accedemos a el?¿?¿¿¿??¿
+      //Si que accedemos a el, pero para ello tenemos que enviarlo a la función como se ve en la parte de arriba.
+
+    }
+
+    // MEDIANTE LA TECLA ENTER
+    $('.lists').on( 'keyup','.addTask input', function ( event ) {
+       if ( event.keyCode === 13 ) {
+         let taskNode = $(event.target.parentNode.previousElementSibling); //Nos posicionamos en la clase tasks
+         let taskName = $(event.target).val();//nos posicionamos en le mismo evento que es el input.
+         appendNewTask(taskName,taskNode);
+         taskName = $(event.target).val(''); //despues de enviar el nombre del input, vaciar otra vez el addTask
+       }
+    } )
+
+    // MEDIANTE LA TECLA ENTER
+    $('.lists').on('click','.addTask button', function(event) {
+        let taskNode = $(event.target.parentNode.previousElementSibling); //Nos posicionamos en la clase tasks
+        let taskName = $(event.target.previousElementSibling).val(); //Nos posicionamos en inputo que esta una posicion por encima del boton.
+        appendNewTask(taskName,taskNode); //la constante que creea las listas
+        taskName = $(event.target.previousElementSibling).val(''); //despues de enviar el nombre del input, vacia otra vez el addTask
+    })
+
+
+
+    //-------------------------------------------------------------------------------------------------------------NEW TASK END
 
 
 
