@@ -95,7 +95,7 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
        }
     } )
 
-    // MEDIANTE LA TECLA ENTER
+    // MEDIANTE CLICK
     $('.lists').on('click','.addTask button', function(event) {
         let taskNode = $(event.target.parentNode.previousElementSibling); //Nos posicionamos en la clase tasks
         let taskName = $(event.target.previousElementSibling).val(); //Nos posicionamos en inputo que esta una posicion por encima del boton.
@@ -108,6 +108,13 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
        let listNode = $(event.target.parentNode);
        listNode.detach();
      })
+
+     $('.lists').on('keyup','.addTask input ', function(event) {
+       if ( event.keyCode === 8 ||event.keyCode === 32 ) { //keyCode del delete, 8 en mac 32 en PC
+        let listNode = $(event.target.parentNode.previousElementSibling.lastChild);
+        listNode.detach();
+      }
+      })
      //---------------------------------------------------------------------------DELETE BUTTON END
     //-------------------------------------------------------------------------------------------------------------NEW TASK END
 
