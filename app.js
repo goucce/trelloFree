@@ -64,7 +64,7 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
     //-------------------------------------------------------------------------------------------------------------NEW TASK START
 
     const createTaskString = name =>
-      ` <div class="tasks">
+      ` <div class="task">
             <h4>${name}</h4>
             <button>X</button>
             </div>`
@@ -103,8 +103,12 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
         taskName = $(event.target.previousElementSibling).val(''); //despues de enviar el nombre del input, vacia otra vez el addTask
     })
 
-
-
+    //---------------------------------------------------------------------------DELETE BUTTON START
+    $('.lists').on('click', '.task button', function(event) {
+       let listNode = $(event.target.parentNode);
+       listNode.detach();
+     })
+     //---------------------------------------------------------------------------DELETE BUTTON END
     //-------------------------------------------------------------------------------------------------------------NEW TASK END
 
 
