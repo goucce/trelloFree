@@ -1,0 +1,23 @@
+body {
+  background-color: #CF6060;
+}
+
+header{
+
+    margin-top: 6vh;
+    margin-left: 6vh;
+
+}
+
+.lists{
+  margin-top: 3vh;
+  margin-left: 6vh;
+}
+
+input{
+-webkit-border-radius: 5px;
+}
+::placeholder{
+  color: white;
+
+}

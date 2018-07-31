@@ -21,6 +21,7 @@ Opcional:
 - [ ] Cambiar el color de las tareas individualmente (Se debe buscar un plugin de terceros de color-picker)
 - [ ] Guardar el estado en localStorage
 
+- [ ] Meter en las tasks imagenes subidas desde ordenador: https://getbootstrap.com/docs/4.0/components/input-group/#custom-file-input
 
 ## Boceto
 

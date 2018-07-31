@@ -45,7 +45,7 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
         }
     } )
     // MEDIANTE CLICK EN EL BOTÓN.
-    $('.adderButton').on('click', function(event) {
+    $('#adderButton').on('click', function(event) { //clase bootstrap necesidad de ID?¿
         appendNewList(); //la constante que creea las listas
     })
 
@@ -109,8 +109,9 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
        listNode.detach();
      })
 
+      //**************PROBLEMA DE BORRAR EN CUALQUEIR PARTE DEL INPUT*******
      $('.lists').on('keyup','.addTask input ', function(event) {
-       if ( event.keyCode === 8 ||event.keyCode === 32 ) { //keyCode del delete, 8 en mac 32 en PC
+       if ( event.keyCode === 8 || event.keyCode === 46 ) { //keyCode del delete, 8 en mac 32 en PC
         let listNode = $(event.target.parentNode.previousElementSibling.lastChild);
         listNode.detach();
       }
