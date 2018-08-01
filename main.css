@@ -1,5 +1,9 @@
 body {
+  display: flex;
+  flex-direction: column;
+
   background-color: #CF6060;
+
 }
 
 header{
@@ -8,16 +12,53 @@ header{
     margin-left: 6vh;
 
 }
+.inputAdd{
+        width: 241px;
 
-.lists{
+}
+
+.list{
+
+  min-width: 300px;
+  min-height: inherit;
+  overflow: scroll;  /*Lo que sobresalga del box no aparece. */
   margin-top: 3vh;
   margin-left: 6vh;
+  background: #f8f9fa;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  -webkit-border-radius: 0.25em;
 }
 
 input{
 -webkit-border-radius: 5px;
 }
+
 ::placeholder{
   color: white;
+
+}
+
+#adderTask{
+    width: 36px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 6px;
+    /* margin-left: 30px; */
+
+}
+
+/* #adderTask{
+    size: 60%;
+
+} */
+
+/* Con el flex elegimos la direccion a la que queremos que se desplace el scroll */
+#lists{
+  display: flex;
+  flex-direction: row;
 
 }

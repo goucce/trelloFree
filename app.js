@@ -16,8 +16,8 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
 
             </div>
             <div class="addTask">
-                <input type="text">
-                <button class="adderTask">Add task</button>
+                <input class="btn btn-outline-secondary inputAdd" type="text">
+                <button type="button" class="btn btn-dark" id="adderTask">+</button>
             </div>
         </div>`
 
@@ -31,7 +31,7 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
          // creamos el nodo .list
          let list = $( createListString( listName ) );
          // añadimos el node al DOM
-         $( '.lists' ).append( list )
+         $( '#lists' ).append( list )
          // Limpiamos el texto del input
          addListInput.val( '' );
     }
@@ -45,13 +45,13 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
         }
     } )
     // MEDIANTE CLICK EN EL BOTÓN.
-    $('#adderButton').on('click', function(event) { //clase bootstrap necesidad de ID?¿
+    $('#adderButton').on('click', function(event) { //clase bootstrap necesidad de ID
         appendNewList(); //la constante que creea las listas
     })
 
     //---------------------------------------------------------------------------DELETE BUTTON START
 
-     $('.lists').on('click', '.listHeader button', function(event) {
+     $('#lists').on('click', '.listHeader button', function(event) {
         let listNode = $(event.target.parentNode.parentNode);
         listNode.detach();
      })
@@ -86,7 +86,7 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
     }
 
     // MEDIANTE LA TECLA ENTER
-    $('.lists').on( 'keyup','.addTask input', function ( event ) {
+    $('#lists').on( 'keyup','.addTask input', function ( event ) {
        if ( event.keyCode === 13 ) {
          let taskNode = $(event.target.parentNode.previousElementSibling); //Nos posicionamos en la clase tasks
          let taskName = $(event.target).val();//nos posicionamos en le mismo evento que es el input.
@@ -96,7 +96,7 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
     } )
 
     // MEDIANTE CLICK
-    $('.lists').on('click','.addTask button', function(event) {
+    $('#lists').on('click','.addTask button', function(event) {
         let taskNode = $(event.target.parentNode.previousElementSibling); //Nos posicionamos en la clase tasks
         let taskName = $(event.target.previousElementSibling).val(); //Nos posicionamos en inputo que esta una posicion por encima del boton.
         appendNewTask(taskName,taskNode); //la constante que creea las listas
@@ -104,13 +104,13 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
     })
 
     //---------------------------------------------------------------------------DELETE BUTTON START
-    $('.lists').on('click', '.task button', function(event) {
+    $('#lists').on('click', '.task button', function(event) {
        let listNode = $(event.target.parentNode);
        listNode.detach();
      })
 
       //**************PROBLEMA DE BORRAR EN CUALQUEIR PARTE DEL INPUT*******
-     $('.lists').on('keyup','.addTask input ', function(event) {
+     $('#lists').on('keyup','.addTask input ', function(event) {
        if ( event.keyCode === 8 || event.keyCode === 46 ) { //keyCode del delete, 8 en mac 32 en PC
         let listNode = $(event.target.parentNode.previousElementSibling.lastChild);
         listNode.detach();
