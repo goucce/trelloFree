@@ -9,8 +9,8 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
       //` let addTaskInput = $( '.addTask input' );
         `<div class="list" id="${generateId('list')}">
             <div class="listHeader">
-                <h4>${name}</h4>
-                <button>X</button>
+                <h4 class="nameList">${name}</h4>
+                <button class="buttonList">X</button>
             </div>
             <div class="tasks">
 
@@ -65,7 +65,7 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
 
     const createTaskString = name =>
       ` <div class="task">
-            <h4>${name}</h4>
+            <h4 class="nameTask">${name}</h4>
             <button>X</button>
             </div>`
 
