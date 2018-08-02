@@ -4,6 +4,22 @@ body {
   background-image: url("https://images.unsplash.com/photo-1500829243541-74b677fecc30?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8557c6d2fba5366815ca9d77231da407&auto=format&fit=crop&w=1955&q=80");
   background-repeat: no-repeat;
   background-attachment: fixed;
+  z-index: 0;
+
+  /* PARA QUE PARA CUALQUIER RESOLUCION LA IMAGEN NO CAMBIE DE TAMAÑO */
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+
+background-attachment: fixed;
+background-repeat: no-repeat;
+background-position: center center;
+padding: 1px;
+height: 98%;
+width: 98%;
+position: absolute;
+overflow: scroll;
   /* background-color: #CF6060; */
 
 }
@@ -14,6 +30,12 @@ header{
     margin-left: 6vh;
 
 }
+.textoInicial{
+background-image: url("./public/imagen/textoinicial.png");
+z-index: 1;
+position: absolute;
+
+}
 .inputAdd{
         width: 241px;
         padding-top: 2px;
@@ -22,17 +44,20 @@ header{
 .listHeader{
   display: flex;
   flex-direction: row;
+  /* position: fixed; */
 
 }
 
 .task{
   display: flex;
   flex-direction: row;
+
+
 }
 
 .buttonList{
   display: flex;
-  
+
   justify-content: flex-start;
 
 
@@ -40,6 +65,8 @@ header{
 .list{
 
   min-width: 300px;
+  max-width: 300px;
+  max-height: 608px;
   min-height: inherit;
   overflow: scroll;  /*Lo que sobresalga del box no aparece. */
   margin-top: 3vh;
@@ -85,14 +112,53 @@ input{
 
 }
 
+.addTask{
+
+    /* padding-top: 30px; */
+}
+.tasks{
+  max-height: 70vh;
+  overflow-y: scroll;
+
+    /* padding-top: 30px; */
+
+}
 .nameTask{
   font-size: 0.9em;
+  max-width: 250px;
+  min-width: 250px;
+  font-family: 'Bitter', serif;
+
 
 }
 
 .nameList{
   text-transform: uppercase;
+  max-width: 250px;
+  min-width: 250px;
+  /* font-family: 'Anton', sans-serif; */
+  font-family: 'Bitter', serif;
+  padding-left: 7px;
+  color: #343a40;
+  display: flex;
+  justify-content: center;
+
+}
 
 
+.deleteButtonTask{
+  margin-left: 10px;
+  max-width: 10px;
+  min-width: 10px;
+  max-height: 10px;
+  min-height: 10px;
+
+}
+.deleteButtonList{
+  margin-left: 10px;
+  max-width: 10px;
+  min-width: 10px;
+  max-height: 10px;
+  min-height: 10px;
 
 }

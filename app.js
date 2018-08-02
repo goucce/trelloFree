@@ -2,6 +2,23 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
     let addListInput = $( '.addListWrapper input' );//ACCEDEMOS A LA CLASE HTML ADDLISTWEAPPER Y AL SELECTOR INPUT (YA ESTAN CREADOS INICIALMENTE)
     const generateId = namespace => `${namespace}-${Date.now()}-${Math.ceil(Math.random()*100)}` //GENERA UNA ID ALEATORA EN UN STRING
 
+    //Cuando la pantalla se carga e 
+    $(window).on("load", function(){
+      if ('Saved' in localStorage) {
+      $('#lists').html((JSON.parse(localStorage.getItem('Saved'))));
+      }
+
+    })
+
+
+    // Constante mediante donde la escribamos se guardara en el storage en la misma pagina para luego cargarse de nuevo mas tarde.
+    const savedStorage = () => {
+      if(typeof(Storage)!== "undefined"){
+      localStorage.setItem('Saved', JSON.stringify($('#lists').html())); //Guarda el objeto con toda la informacion de lists y la convierte en html, si no seria un objeto sin ams.
+      }
+    }
+
+
     //-------------------------------------------------------------------------------------------------------------NEW LIST START
     //STRING CON todo el CODGIO HTML DE LA NUEVA LISTA DONDE EL VALOR QUE RECIBE SERÁ EL NOMBRE DE LA LISTA.
     const createListString = name =>
@@ -9,8 +26,8 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
       //` let addTaskInput = $( '.addTask input' );
         `<div class="list" id="${generateId('list')}">
             <div class="listHeader">
-                <h4 class="nameList">${name}</h4>
-                <button class="buttonList">X</button>
+                <h4 class="nameList" contenteditable="true">${name}</h4>
+                <button class="deleteButtonList"></button>
             </div>
             <div class="tasks">
 
@@ -42,11 +59,13 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
      addListInput.on( 'keyup', function ( event ) {
         if ( event.keyCode === 13 ) {
            appendNewList();
+           savedStorage();
         }
     } )
     // MEDIANTE CLICK EN EL BOTÓN.
     $('#adderButton').on('click', function(event) { //clase bootstrap necesidad de ID
         appendNewList(); //la constante que creea las listas
+        savedStorage();
     })
 
     //---------------------------------------------------------------------------DELETE BUTTON START
@@ -54,6 +73,7 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
      $('#lists').on('click', '.listHeader button', function(event) {
         let listNode = $(event.target.parentNode.parentNode);
         listNode.detach();
+        savedStorage();
      })
      //---------------------------------------------------------------------------DELETE BUTTON END
 
@@ -65,8 +85,8 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
 
     const createTaskString = name =>
       ` <div class="task">
-            <h4 class="nameTask">${name}</h4>
-            <button>X</button>
+            <h4 class="nameTask" contenteditable="true">${name}</h4>
+            <button class="deleteButtonTask"></button>
             </div>`
 
     const appendNewTask = (taskName, taskNode) => {  //le podemos enviar todas las variables que queramos utilzar dentro de la función.
@@ -82,7 +102,7 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
       // añadimos el node al DOM
       taskNode.append(task);//--------------------------?¿?¿?¿ como cuadno se acceda ya estará creado el .task accedemos a el?¿?¿¿¿??¿
       //Si que accedemos a el, pero para ello tenemos que enviarlo a la función como se ve en la parte de arriba.
-
+      savedStorage();
     }
 
     // MEDIANTE LA TECLA ENTER
@@ -92,7 +112,9 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
          let taskName = $(event.target).val();//nos posicionamos en le mismo evento que es el input.
          appendNewTask(taskName,taskNode);
          taskName = $(event.target).val(''); //despues de enviar el nombre del input, vaciar otra vez el addTask
+         savedStorage();
        }
+
     } )
 
     // MEDIANTE CLICK
@@ -101,19 +123,22 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
         let taskName = $(event.target.previousElementSibling).val(); //Nos posicionamos en inputo que esta una posicion por encima del boton.
         appendNewTask(taskName,taskNode); //la constante que creea las listas
         taskName = $(event.target.previousElementSibling).val(''); //despues de enviar el nombre del input, vacia otra vez el addTask
+        savedStorage();
     })
 
     //---------------------------------------------------------------------------DELETE BUTTON START
     $('#lists').on('click', '.task button', function(event) {
        let listNode = $(event.target.parentNode);
        listNode.detach();
+       savedStorage();
      })
 
       //**************PROBLEMA DE BORRAR EN CUALQUEIR PARTE DEL INPUT*******
      $('#lists').on('keyup','.addTask input ', function(event) {
-       if ( event.keyCode === 8 || event.keyCode === 46 ) { //keyCode del delete, 8 en mac 32 en PC
+       if ( event.keyCode === 8|| event.keyCode === 46 ) { //keyCode del delete, 8 en mac 32 en PC
         let listNode = $(event.target.parentNode.previousElementSibling.lastChild);
         listNode.detach();
+        savedStorage();
       }
       })
      //---------------------------------------------------------------------------DELETE BUTTON END
