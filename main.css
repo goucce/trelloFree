@@ -139,7 +139,7 @@ input{
 .tasks::-webkit-scrollbar {
  width: 7px;
 }
-.list::-webkit-scrollbar {
+.task::-webkit-scrollbar-button {
  width: 0px;
 }
 
