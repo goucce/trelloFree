@@ -6,8 +6,8 @@ La misión del app es poder gestionar la metodología scrum. De modo que tengamo
 
 ## BackLog
 
-- [ ] Layout responsive con flexbox
-- [ ] Mejorar el estilo del boceto
+- [x] Layout responsive con flexbox
+- [x] Mejorar el estilo del boceto
 - [x] Añadir listas nuevas
 - [x] Borrar listas
 - [x] Añadir tareas a las listas
@@ -15,11 +15,11 @@ La misión del app es poder gestionar la metodología scrum. De modo que tengamo
 
 Opcional:
 
-- [ ] Marcar tarea como completada
-- [ ] Borrar tareas
-- [ ] Editar texto de la tarea.
+- [x] Marcar tarea como completada
+- [x] Borrar tareas
+- [x] Editar texto de la tarea.
 - [ ] Cambiar el color de las tareas individualmente (Se debe buscar un plugin de terceros de color-picker)
-- [ ] Guardar el estado en localStorage
+- [x] Guardar el estado en localStorage
 
 - [ ] Meter en las tasks imagenes subidas desde ordenador: https://getbootstrap.com/docs/4.0/components/input-group/#custom-file-input
 
