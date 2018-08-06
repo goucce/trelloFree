@@ -35,14 +35,14 @@ header{
   margin-left: 30vh;
 /* background-image: url("./public/imagen/textoinicial.png"); */
 /* background-color: red;
-z-index: 3; */ 
+z-index: 3; */
 
 
 }
 .inputAdd{
-        width: 241px;
-        padding-top: 2px;
-        padding-bottom: 2px;;
+        width: 27vh;
+        padding-top: 0.1vh;
+        padding-bottom: 0.1vh;
 }
 .listHeader{
   display: flex;
@@ -60,24 +60,23 @@ z-index: 3; */
 
 .buttonList{
   display: flex;
-
   justify-content: flex-start;
 
 
 }
 .list{
 
-  min-width: 300px;
-  max-width: 300px;
-  max-height: 608px;
-  min-height: inherit;
-  overflow: scroll;  /*Lo que sobresalga del box no aparece. */
+  min-width: 37vh;
+  max-width: 37vh;
+  overflow-y: : auto; /*Lo que sobresalga del box no aparece. */
+  /* overflow: scroll; */
+
   margin-top: 3vh;
   margin-left: 6vh;
   background: #f8f9fa;
-  padding-left: 10px;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  padding-left: 1.5vh;
+  padding-bottom: 1.5vh;
+  padding-top: 1.5vh;
   -webkit-border-radius: 0.25em;
 }
 
@@ -91,14 +90,13 @@ input{
 }
 
 #adderTask{
-    width: 36px;
+    width: 4vh;
     padding-top: 0px;
     padding-bottom: 0px;
     padding-left: 0px;
     padding-right: 0px;
-
     /* -webkit-border-radius: 100%; */
-    /* margin-left: 30px; */
+    margin-left: 0.4vh;
 
 }
 
@@ -111,7 +109,8 @@ input{
 #lists{
   display: flex;
   flex-direction: row;
-  padding-top: 90px;
+  padding-top: 15vh;
+  overflow: scroll;
 
 }
 
@@ -120,10 +119,15 @@ input{
     /* padding-top: 30px; */
 }
 .tasks{
-  max-height: 70vh;
+  max-height: 65vh;
   overflow-y: scroll;
+  /* padding-top: 30px; */
 
-    /* padding-top: 30px; */
+}
+
+.task::-webkit-scrollbar{
+  width: 12px;
+  background-color: white;
 
 }
 .nameTask{
