@@ -122,19 +122,22 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
 
     // MEDIANTE CLICK
     $('#lists').on('click','.addTask span', function(event) {
-        let taskNode = $(event.target.parentNode.parentNode.previousElementSibling); //Nos posicionamos en la clase tasks
-        let taskName = $(event.target.parentNode.previousElementSibling).val(); //Nos posicionamos en inputo que esta una posicion por encima del boton.
+        let taskNode = $(event.target.closest('.addTask').previousElementSibling); //Nos posicionamos en la clase tasks
+        let taskName = $(event.target.closest('.addTask').querySelector('input')).val(); //Nos posicionamos en inputo que esta una posicion por encima del boton.
         appendNewTask(taskName,taskNode); //la constante que creea las listas
-        taskName = $(event.target.parentNode.previousElementSibling).val(''); //despues de enviar el nombre del input, vacia otra vez el addTask
+        taskName = $(event.target.closest('.addTask').querySelector('input')).val(''); //despues de enviar el nombre del input, vacia otra vez el addTask
         savedStorage();
     })
 
     //---------------------------------------------------------------------------DELETE BUTTON START
-    $('#lists').on('click', '.task span', function(event) {
-       let listNode = $(event.target.parentNode.parentNode);
-       listNode.detach();
-       savedStorage();
-     })
+
+
+     $('#lists').on('click', '.task span', function(event) {  //Seleccionamos la clase y dentro de esa clase la funcion/clase/id que deseemos
+        let listNode = $(event.target.closest('.task'));
+        listNode.detach();
+        savedStorage();
+      })
+
 
       //**************PROBLEMA DE BORRAR EN CUALQUEIR PARTE DEL INPUT*******
      $('#lists').on('keyup','.addTask input ', function(event) {

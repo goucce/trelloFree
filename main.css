@@ -73,7 +73,7 @@ z-index: 3; */
   /* overflow: scroll; */
 
   margin-top: 3vh;
-  margin-left: 6vh;
+  margin-left: 5vh;
   background: #f8f9fa;
   padding: 1.2vh 0.1vh 1.2vh 1.3vh;
   -webkit-border-radius: 0.25em;
@@ -91,17 +91,23 @@ input{
 #adderTask{
     width: 4vh;
     margin-left: 0.4vh;
+    margin-top: 2vh;
 }
 .btn-dark {
     color: #343a40;
     background-color: #f8f9fa;
     border-color: #f8f9fa;
+    border: none;
 }
 #adderTask.btn-dark:hover {
     color: #858686;
     background-color: transparent;
     border: none;
-    border-radius: none;
+    border-radius: 0px;
+    text-decoration: none;
+}
+#adderTask.btn-dark:focus {
+    box-shadow: none;
 }
 
 /* #adderTask{
@@ -135,7 +141,7 @@ input{
 }
 
 .tasks::-webkit-scrollbar-track {
- background: white;
+ background: #f8f9fa;
  border-radius: 7px;
 }
 
@@ -161,8 +167,8 @@ input{
 
 .nameList{
   text-transform: uppercase;
-  max-width: 250px;
-  min-width: 250px;
+  max-width: 29vh;
+  min-width: 29vh;
   /* font-family: 'Anton', sans-serif; */
   font-family: 'Bitter', serif;
   padding-left: 7px;
