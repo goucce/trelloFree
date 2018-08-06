@@ -161,7 +161,11 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
      //---------------------------------------------------------------------------DELETE BUTTON END
     //-------------------------------------------------------------------------------------------------------------NEW TASK END
 
-  
+    // $('#lists').on('change', '.tasks .task .check',function(event){
+    //   let color = $(event.target).css('background-color');
+    //   $(event.target.closest('.card-panel')).css("border-left-color", color);
+    //   saveStorage();
+    // })
 
 
 
