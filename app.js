@@ -38,6 +38,8 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
 
                 <button type="button" class="btn btn-dark" id="adderTask"><span class="oi oi-chevron-right"></span></button>
 
+
+
             </div>
         </div>`
 
@@ -89,7 +91,16 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
     const createTaskString = name =>
       ` <div class="task">
           <h4 class="nameTask" contenteditable="true">${name}</h4>
-            <button class="deleteButtonTask"><span class="oi oi-x"></span></button>
+
+          <label class="check ">
+            <input type="checkbox" checked="checked" name="is_name">
+              <span class="checkmark"></span>
+          </label>
+
+            <button class="deleteButtonTask"><span class="oi oi-x spanX"></span></button>
+
+
+
             </div>`
 
     const appendNewTask = (taskName, taskNode) => {  //le podemos enviar todas las variables que queramos utilzar dentro de la función.
@@ -132,7 +143,7 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
     //---------------------------------------------------------------------------DELETE BUTTON START
 
 
-     $('#lists').on('click', '.task span', function(event) {  //Seleccionamos la clase y dentro de esa clase la funcion/clase/id que deseemos
+     $('#lists').on('click', '.task .deleteButtonTask', function(event) {  //Seleccionamos la clase y dentro de esa clase la funcion/clase/id que deseemos
         let listNode = $(event.target.closest('.task'));
         listNode.detach();
         savedStorage();
