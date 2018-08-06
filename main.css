@@ -91,10 +91,7 @@ input{
 
 #adderTask{
     width: 4vh;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
+    padding: 1.2vh 0.5vh 1.2vh 1.2vh;
     /* -webkit-border-radius: 100%; */
     margin-left: 0.4vh;
 
@@ -126,21 +123,21 @@ input{
 }
 
 .tasks::-webkit-scrollbar {
- width: 10px;
+ width: 7px;
 }
 
 .tasks::-webkit-scrollbar-track {
  background: white;
- border-radius: 10px;
+ border-radius: 7px;
 }
 
 .tasks::-webkit-scrollbar-thumb {
  background: gray;
- border-radius: 10px;
+ border-radius: 7px;
 }
 
 .tasks::-webkit-scrollbar-thumb:hover {
- background: black;
+ background: darkgray;
 
 }
 .nameTask{
