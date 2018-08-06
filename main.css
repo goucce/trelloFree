@@ -74,9 +74,7 @@ z-index: 3; */
   margin-top: 3vh;
   margin-left: 6vh;
   background: #f8f9fa;
-  padding-left: 1.5vh;
-  padding-bottom: 1.5vh;
-  padding-top: 1.5vh;
+  padding: 1.2vh 0.5vh 1.2vh 1.2vh;
   -webkit-border-radius: 0.25em;
 }
 
@@ -91,7 +89,10 @@ input{
 
 #adderTask{
     width: 4vh;
-    padding: 1.2vh 0.5vh 1.2vh 1.2vh;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
     /* -webkit-border-radius: 100%; */
     margin-left: 0.4vh;
 
@@ -123,21 +124,21 @@ input{
 }
 
 .tasks::-webkit-scrollbar {
- width: 7px;
+ width: 10px;
 }
 
 .tasks::-webkit-scrollbar-track {
  background: white;
- border-radius: 7px;
+ border-radius: 10px;
 }
 
 .tasks::-webkit-scrollbar-thumb {
  background: gray;
- border-radius: 7px;
+ border-radius: 10px;
 }
 
 .tasks::-webkit-scrollbar-thumb:hover {
- background: darkgray;
+ background: black;
 
 }
 .nameTask{
