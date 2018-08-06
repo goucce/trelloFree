@@ -35,7 +35,9 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
             </div>
             <div class="addTask">
                 <input class="btn btn-outline-secondary inputAdd" type="text">
-                <button type="button" class="btn btn-dark" id="adderTask">+</button>
+
+                <button type="button" class="btn btn-dark" id="adderTask"><span class="oi oi-chevron-right"></span></button>
+
             </div>
         </div>`
 
@@ -87,7 +89,7 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
     const createTaskString = name =>
       ` <div class="task">
           <h4 class="nameTask" contenteditable="true">${name}</h4>
-            <button class="deleteButtonTask"></button>
+            <button class="deleteButtonTask"><span class="oi oi-x"></span></button>
             </div>`
 
     const appendNewTask = (taskName, taskNode) => {  //le podemos enviar todas las variables que queramos utilzar dentro de la función.
@@ -119,17 +121,17 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
     } )
 
     // MEDIANTE CLICK
-    $('#lists').on('click','.addTask button', function(event) {
-        let taskNode = $(event.target.parentNode.previousElementSibling); //Nos posicionamos en la clase tasks
-        let taskName = $(event.target.previousElementSibling).val(); //Nos posicionamos en inputo que esta una posicion por encima del boton.
+    $('#lists').on('click','.addTask span', function(event) {
+        let taskNode = $(event.target.parentNode.parentNode.previousElementSibling); //Nos posicionamos en la clase tasks
+        let taskName = $(event.target.parentNode.previousElementSibling).val(); //Nos posicionamos en inputo que esta una posicion por encima del boton.
         appendNewTask(taskName,taskNode); //la constante que creea las listas
-        taskName = $(event.target.previousElementSibling).val(''); //despues de enviar el nombre del input, vacia otra vez el addTask
+        taskName = $(event.target.parentNode.previousElementSibling).val(''); //despues de enviar el nombre del input, vacia otra vez el addTask
         savedStorage();
     })
 
     //---------------------------------------------------------------------------DELETE BUTTON START
-    $('#lists').on('click', '.task button', function(event) {
-       let listNode = $(event.target.parentNode);
+    $('#lists').on('click', '.task span', function(event) {
+       let listNode = $(event.target.parentNode.parentNode);
        listNode.detach();
        savedStorage();
      })

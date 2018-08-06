@@ -40,9 +40,10 @@ z-index: 3; */
 
 }
 .inputAdd{
-        width: 27vh;
+        width: 30vh;
         padding-top: 0.1vh;
         padding-bottom: 0.1vh;
+        margin-top: 1.5vh;
 }
 .listHeader{
   display: flex;
@@ -74,7 +75,7 @@ z-index: 3; */
   margin-top: 3vh;
   margin-left: 6vh;
   background: #f8f9fa;
-  padding: 1.2vh 0.5vh 1.2vh 1.2vh;
+  padding: 1.2vh 0.1vh 1.2vh 1.3vh;
   -webkit-border-radius: 0.25em;
 }
 
@@ -89,13 +90,18 @@ input{
 
 #adderTask{
     width: 4vh;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    /* -webkit-border-radius: 100%; */
     margin-left: 0.4vh;
-
+}
+.btn-dark {
+    color: #343a40;
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+}
+#adderTask.btn-dark:hover {
+    color: #858686;
+    background-color: transparent;
+    border: none;
+    border-radius: none;
 }
 
 /* #adderTask{
@@ -116,38 +122,41 @@ input{
 
     /* padding-top: 30px; */
 }
+
 .tasks{
   max-height: 65vh;
   overflow-y: scroll;
   /* padding-top: 30px; */
 
 }
-
+/*AÑADIR LAS BARRAS QUE HACEN SCROLL  */
 .tasks::-webkit-scrollbar {
- width: 10px;
+ width: 7px;
 }
 
 .tasks::-webkit-scrollbar-track {
  background: white;
- border-radius: 10px;
+ border-radius: 7px;
 }
 
 .tasks::-webkit-scrollbar-thumb {
  background: gray;
- border-radius: 10px;
+ border-radius: 7px;
 }
 
 .tasks::-webkit-scrollbar-thumb:hover {
- background: black;
+ background: darkgray;
 
 }
+
 .nameTask{
   font-size: 0.9em;
-  max-width: 250px;
-  min-width: 250px;
+  min-width: 32vh;
   font-family: 'Bitter', serif;
-
-
+  border-bottom: 2px solid #a5a4a3;
+}
+.nameTask:focus{
+  outline: none;
 }
 
 .nameList{
@@ -162,19 +171,25 @@ input{
   justify-content: center;
 
 }
+.nameList:focus{
+  outline: none;
+}
 
 
 .deleteButtonTask{
-  margin-left: 10px;
-  max-width: 10px;
-  min-width: 10px;
-  max-height: 10px;
-  min-height: 10px;
   -webkit-border-radius: 0.25em;
-  border-color: #ff5f5fb5;
-  border-radius: unfocus;
-
+  border: none;
+  background-color: transparent;
+  max-height: 1vh;
 }
+.deleteButtonTask span{
+  font-size: 1vh;
+  max-height: 1vh;
+}
+button:focus {
+     outline: none;
+}
+
 .deleteButtonList{
   border-radius: 50%;
   border-color: #ff5f5fb5;
