@@ -19,7 +19,7 @@ padding: 1px;
 height: 98%;
 width: 98%;
 position: absolute;
-overflow: scroll;
+
   /* background-color: #CF6060; */
 
 }
@@ -110,7 +110,7 @@ input{
   display: flex;
   flex-direction: row;
   padding-top: 15vh;
-  overflow: scroll;
+
 
 }
 
@@ -125,9 +125,22 @@ input{
 
 }
 
-.task::-webkit-scrollbar{
-  width: 12px;
-  background-color: white;
+.tasks::-webkit-scrollbar {
+ width: 10px;
+}
+
+.tasks::-webkit-scrollbar-track {
+ background: white;
+ border-radius: 10px;
+}
+
+.tasks::-webkit-scrollbar-thumb {
+ background: gray;
+ border-radius: 10px;
+}
+
+.tasks::-webkit-scrollbar-thumb:hover {
+ background: black;
 
 }
 .nameTask{
