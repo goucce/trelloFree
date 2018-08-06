@@ -2,13 +2,13 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
     let addListInput = $( '.addListWrapper input' );//ACCEDEMOS A LA CLASE HTML ADDLISTWEAPPER Y AL SELECTOR INPUT (YA ESTAN CREADOS INICIALMENTE)
     const generateId = namespace => `${namespace}-${Date.now()}-${Math.ceil(Math.random()*100)}` //GENERA UNA ID ALEATORA EN UN STRING
 
-    //Cuando la pantalla se carga e 
-    $(window).on("load", function(){
-      if ('Saved' in localStorage) {
-      $('#lists').html((JSON.parse(localStorage.getItem('Saved'))));
-      }
-
-    })
+    //Cuando la pantalla se carga e
+    // $(window).on("load", function(){
+    //   if ('Saved' in localStorage) {
+    //   $('#lists').html((JSON.parse(localStorage.getItem('Saved'))));
+    //   }
+    //
+    // })
 
 
     // Constante mediante donde la escribamos se guardara en el storage en la misma pagina para luego cargarse de nuevo mas tarde.
@@ -23,11 +23,12 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
     //STRING CON todo el CODGIO HTML DE LA NUEVA LISTA DONDE EL VALOR QUE RECIBE SERÁ EL NOMBRE DE LA LISTA.
     const createListString = name =>
       //creo el let addTaskInput porque supuestamente el codigo ya estará creado y existirá
-      //` let addTaskInput = $( '.addTask input' );
+      //` let addTaskInput = $( '.addTask input' );  <button class="deleteButtonList"></button>
         `<div class="list" id="${generateId('list')}">
             <div class="listHeader">
-                <h4 class="nameList" contenteditable="true">${name}</h4>
                 <button class="deleteButtonList"></button>
+                <h4 class="nameList" contenteditable="true">${name}</h4>
+
             </div>
             <div class="tasks">
 
@@ -85,7 +86,7 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
 
     const createTaskString = name =>
       ` <div class="task">
-            <h4 class="nameTask" contenteditable="true">${name}</h4>
+          <h4 class="nameTask" contenteditable="true">${name}</h4>
             <button class="deleteButtonTask"></button>
             </div>`
 
@@ -135,7 +136,7 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
 
       //**************PROBLEMA DE BORRAR EN CUALQUEIR PARTE DEL INPUT*******
      $('#lists').on('keyup','.addTask input ', function(event) {
-       if ( event.keyCode === 8|| event.keyCode === 46 ) { //keyCode del delete, 8 en mac 32 en PC
+       if ( event.keyCode === 88|| event.keyCode === 46 ) { //keyCode del delete, 8 en mac 32 en PC
         let listNode = $(event.target.parentNode.previousElementSibling.lastChild);
         listNode.detach();
         savedStorage();
