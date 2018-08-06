@@ -3,12 +3,12 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
     const generateId = namespace => `${namespace}-${Date.now()}-${Math.ceil(Math.random()*100)}` //GENERA UNA ID ALEATORA EN UN STRING
 
     //Cuando la pantalla se carga e
-    // $(window).on("load", function(){
-    //   if ('Saved' in localStorage) {
-    //   $('#lists').html((JSON.parse(localStorage.getItem('Saved'))));
-    //   }
-    //
-    // })
+    $(window).on("load", function(){
+      if ('Saved' in localStorage) {
+      $('#lists').html((JSON.parse(localStorage.getItem('Saved'))));
+      }
+
+    })
 
 
     // Constante mediante donde la escribamos se guardara en el storage en la misma pagina para luego cargarse de nuevo mas tarde.
