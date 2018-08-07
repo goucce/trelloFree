@@ -93,7 +93,7 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
           <h4 class="nameTask" contenteditable="true">${name}</h4>
 
           <label class="check ">
-            <input type="checkbox" checked="checked" name="is_name">
+            <input type="checkbox"  name="is_name">
               <span class="checkmark"></span>
           </label>
 
@@ -161,11 +161,11 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
      //---------------------------------------------------------------------------DELETE BUTTON END
     //-------------------------------------------------------------------------------------------------------------NEW TASK END
 
-    // $('#lists').on('change', '.tasks .task .check',function(event){
-    //   let color = $(event.target).css('background-color');
-    //   $(event.target.closest('.card-panel')).css("border-left-color", color);
-    //   saveStorage();
-    // })
+    $('#lists').on('change', '.tasks .task .check',function(event){
+      let color = $(event.target).css('background-color');
+      $(event.target.closest('.card-panel')).css("border-left-color", color);
+      saveStorage();
+    })
 
 
 
