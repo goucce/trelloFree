@@ -15,10 +15,7 @@ background-size: cover;
 background-attachment: fixed;
 background-repeat: no-repeat;
 background-position: center center;
-padding: 1px;
-height: 98%;
-width: 98%;
-position: absolute;
+
 
   /* background-color: #CF6060; */
 
@@ -30,7 +27,14 @@ header{
     margin-left: 6vh;
 
 }
-.textoInicial{
+.textoInicial {
+  height:80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
   /* margin-top: 30vh;
   margin-left: 30vh;
 /* background-image: url("./public/imagen/textoinicial.png"); */
@@ -38,6 +42,10 @@ header{
 z-index: 3; */
 
 
+}
+.imagenIn{
+  max-height: 100%;
+  max-width: 100%;
 }
 .inputAdd{
         width: 30vh;

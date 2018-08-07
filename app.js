@@ -53,6 +53,7 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
          // creamos el nodo .list
          let list = $( createListString( listName ) );
          // añadimos el node al DOM
+         $( '.textoInicial' ).detach()
          $( '#lists' ).append( list )
          // Limpiamos el texto del input
          addListInput.val( '' );
