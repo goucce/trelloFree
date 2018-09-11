@@ -58,6 +58,7 @@ $( document ).ready( function () { //NADA MAS CREARSE EL DOCUMENTO LA FUNCION SE
          // Limpiamos el texto del input
          addListInput.val( '' );
     }
+    
     // Listeners
     // CUANDO OCURRA EL EVENTO, SE EJECUTARÁ LA CONSTANTE "appendNewList" donde guarda el input y devuelve el string con el HTML.
 

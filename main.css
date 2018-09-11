@@ -77,7 +77,7 @@ z-index: 3; */
 
   min-width: 37vh;
   max-width: 37vh;
-  overflow-y: : auto; /*Lo que sobresalga del box no aparece. */
+  overflow-y: auto; /*Lo que sobresalga del box no aparece. */
   /* overflow: scroll; */
 
   margin-top: 3vh;
@@ -263,7 +263,7 @@ button:focus {
     height: 2.3vh;
     width: 2.3vh;
     background-color: #f8f9fa;
-    border-color:##010101;
+    border-color:#010101;
     border-style:solid;
     border-width: 0.2vh;
 }
